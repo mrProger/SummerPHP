@@ -2,6 +2,8 @@
 
 include __DIR__ . '/driver/Redbean.php';
 
+use \PHPExceptionHandler\ExceptionHandler;
+
 class MySQL {
     protected string $host;
     protected string $user;
@@ -51,6 +53,10 @@ class MySQL {
 
     public function connect() {
         $connection_str = $this->generateConnectionStr();
-        R::setup($connection_str, $this->user, $this->password);
+        R::setup($connection_str, $this->user, $this->password, true);
+
+        if (!R::testConnection()) {
+            ExceptionHandler::generateError("Не удалось установить соединение с базой данных MySQL");
+        }
     }
 }

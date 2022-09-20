@@ -2,6 +2,8 @@
 
 include __DIR__ . '/driver/Redbean.php';
 
+use \PHPExceptionHandler\ExceptionHandler;
+
 class SQLite {
     protected string $dbname;
 
@@ -20,9 +22,9 @@ class SQLite {
     public function connect() {
         $connection_str = $this->generateConnectionStr();
         R::setup($connection_str);
-    }
 
-    public function getAlias() {
-        return class_alias('\RedBeanPHP\R', 'R');
+        if (!R::testConnection()) {
+            ExceptionHandler::generateError("Не удалось установить соединение с базой данных SQLite");
+        }
     }
 }
