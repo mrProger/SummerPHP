@@ -2,25 +2,15 @@
 
 namespace PHPRouter;
 
-use Exception;
+use PHPExceptionHandler\ExceptionHandler;
 
 include_once "Route.php";
 
 class Router {
     private array $route_array = array();
-    private string $html_error_page = "none";
 
     public function __construct() {
         error_reporting(0);
-    }
-
-    public function loadHtmlFile(string $file) : string {
-        $html = file_get_contents($file);
-        return $html !== false ? $html : "null";
-    }
-
-    public function setCustomErrorPage(string $html) {
-        $this->html_error_page = $html;
     }
 
     public function isEmpty(string $value) : bool {
@@ -31,24 +21,13 @@ class Router {
         return $this->findRouteMethod($route, $method) != null;
     }
 
-    public function generateError(string $error_message) {
-        if ($this->html_error_page == "none") {
-            echo "<h3 class='phprouter-error'>$error_message</h3>";
-        } else {
-            $html = str_replace("[error]", "<h3 class='phprouter-error'>$error_message</h3>", $this->html_error_page);
-            echo $html;
-        }
-
-        throw new Exception("$error_message");
-    }
-
     public function get(string $route, object $func) {
         if ($this->isEmpty($route)) {
-            $this->generateError("Маршрут не должен быть пустым");
+            ExceptionHandler::generateError("Маршрут не должен быть пустым");
         }
 
         if ($this->routeMethodExists($route, "GET")) {
-            $this->generateError("Маршрут /$route с методом GET использован больше одного раза");
+            ExceptionHandler::generateError("Маршрут /$route с методом GET использован больше одного раза");
         }
 
         $this->route_array[$route]["GET"] = new Route($route, "GET", $func);
@@ -56,15 +35,15 @@ class Router {
 
     public function overrideGetRoute(string $old_route, string $new_route) {
         if ($this->isEmpty($old_route) || $this->isEmpty($new_route)) {
-            $this->generateError("Старый и новый маршрут не должны быть пустыми");
+            ExceptionHandler::generateError("Старый и новый маршрут не должны быть пустыми");
         }
 
         if (!$this->routeMethodExists($old_route, "GET")) {
-            $this->generateError("Маршрут /$old_route с методом GET нельзя переопределить, он не существует");
+            ExceptionHandler::generateError("Маршрут /$old_route с методом GET нельзя переопределить, он не существует");
         }
 
         if ($this->routeMethodExists($new_route, "GET")) {
-            $this->generateError("Маршрут /$new_route с методом GET нельзя переопределить, он уже существует");
+            ExceptionHandler::generateError("Маршрут /$new_route с методом GET нельзя переопределить, он уже существует");
         }
 
         $func = $this->route_array[$old_route]["GET"]->action;
@@ -74,11 +53,11 @@ class Router {
 
     public function overrideGetRouteAction(string $route, object $func) {
         if ($this->isEmpty($route)) {
-            $this->generateError("Маршрут не должен быть пустым");
+            ExceptionHandler::generateError("Маршрут не должен быть пустым");
         }
 
         if (!$this->routeMethodExists($route, "GET")) {
-            $this->generateError("Маршрут /$route с методом GET нельзя переопределить, он не существует");
+            ExceptionHandler::generateError("Маршрут /$route с методом GET нельзя переопределить, он не существует");
         }
 
         $this->route_array[$route]["GET"]->action = $func;
@@ -97,11 +76,11 @@ class Router {
 
     public function removeGet(string $route) {
         if ($this->isEmpty($route)) {
-            $this->generateError("Маршрут не должен быть пустым");
+            ExceptionHandler::generateError("Маршрут не должен быть пустым");
         }
 
         if (!$this->routeMethodExists($route, "GET")) {
-            $this->generateError("Маршрут /$route с методом GET нельзя удалить, он не существует");
+            ExceptionHandler::generateError("Маршрут /$route с методом GET нельзя удалить, он не существует");
         }
 
         if ($this->route_array[$route]["POST"] != null) {
@@ -113,11 +92,11 @@ class Router {
 
     public function post(string $route, object $func) {
         if ($this->isEmpty($route)) {
-            $this->generateError("Маршрут не должен быть пустым");
+            ExceptionHandler::generateError("Маршрут не должен быть пустым");
         }
 
         if ($this->routeMethodExists($route, "POST")) {
-            $this->generateError("Маршрут /$route с методом POST использован больше одного раза");
+            ExceptionHandler::generateError("Маршрут /$route с методом POST использован больше одного раза");
         }
 
         $this->route_array[$route]["POST"] = new Route($route, "POST", $func);
@@ -125,15 +104,15 @@ class Router {
 
     public function overridePostRoute(string $old_route, string $new_route) {
         if ($this->isEmpty($old_route) || $this->isEmpty($new_route)) {
-            $this->generateError("Старый и новый маршрут не должны быть пустыми");
+            ExceptionHandler::generateError("Старый и новый маршрут не должны быть пустыми");
         }
 
         if (!$this->routeMethodExists($old_route, "POST")) {
-            $this->generateError("Маршрут /$old_route с методом POST нельзя переопределить, он не существует");
+            ExceptionHandler::generateError("Маршрут /$old_route с методом POST нельзя переопределить, он не существует");
         }
 
         if ($this->routeMethodExists($new_route, "POST")) {
-            $this->generateError("Маршрут /$new_route с методом POST нельзя переопределить, он уже существует");
+            ExceptionHandler::generateError("Маршрут /$new_route с методом POST нельзя переопределить, он уже существует");
         }
 
         $func = $this->route_array[$old_route]["POST"]->action;
@@ -143,11 +122,11 @@ class Router {
 
     public function overridePostRouteAction(string $route, object $func) {
         if ($this->isEmpty($route)) {
-            $this->generateError("Маршрут не должен быть пустым");
+            ExceptionHandler::generateError("Маршрут не должен быть пустым");
         }
 
         if (!$this->routeMethodExists($route, "POST")) {
-            $this->generateError("Маршрут /$route с методом POST нельзя переопределить, он не существует");
+            ExceptionHandler::generateError("Маршрут /$route с методом POST нельзя переопределить, он не существует");
         }
 
         $this->route_array[$route]["POST"]->action = $func;
@@ -159,11 +138,11 @@ class Router {
 
     public function removePost(string $route) {
         if ($this->isEmpty($route)) {
-            $this->generateError("Маршрут не должен быть пустым");
+            ExceptionHandler::generateError("Маршрут не должен быть пустым");
         }
 
         if (!$this->routeMethodExists($route, "POST")) {
-            $this->generateError("Маршрут /$route с методом POST нельзя удалить, он не существует");
+            ExceptionHandler::generateError("Маршрут /$route с методом POST нельзя удалить, он не существует");
         }
 
         if ($this->route_array[$route]["GET"] != null) {
@@ -181,18 +160,20 @@ class Router {
         $uri = preg_replace("/\//", "", $_SERVER["REQUEST_URI"], 1);
         $method = $_SERVER["REQUEST_METHOD"];
 
+        $uri = $uri == null ? "/" : $uri;
+
         if (strpos($uri, "/?") !== false && $method == "GET") {
             $uri = stristr($uri, "/?", true);
         } else if (strpos($uri, "/?") !== false && $method != "GET") {
-            $this->generateError("<h3>Маршрут /$uri не поддерживает GET запросы</h3>");
+            ExceptionHandler::generateError("<h3>Маршрут /$uri не поддерживает GET запросы</h3>");
         }
 
         if (!array_key_exists($uri, $this->route_array)) {
-            $this->generateError("<h3>Маршрут /$uri не найден</h3>");
+            ExceptionHandler::generateError("<h3>Маршрут /$uri не найден</h3>");
         }
 
         if (!$this->routeMethodExists($uri, $method)) {
-            $this->generateError("<h3>Маршрут /$uri не поддерживает тип запроса $method</h3>");
+            ExceptionHandler::generateError("<h3>Маршрут /$uri не поддерживает тип запроса $method</h3>");
         }
 
         call_user_func($this->route_array[$uri][$method]->action);
