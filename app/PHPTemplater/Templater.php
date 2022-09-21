@@ -42,6 +42,10 @@ class Templater {
             ExceptionHandler::generateError("Не удалось сгенерировать страницу");
         }
 
+        if (str_ends_with($content, ".html")) {
+            $content = file_get_contents($content);
+        }
+
         $page = str_replace("[content]", $content, $this->template);
 
         return $page;
