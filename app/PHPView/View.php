@@ -2,32 +2,47 @@
 
 namespace PHPView;
 
+include __DIR__ . '/../PHPSystem/System.php';
+
 use \PHPTemplater\Template;
 use \PHPExceptionHandler\ExceptionHandler;
+use \PHPSystem\System;
 
 class View {
-    protected string $view;
+    protected static string $view;
 
-    public function __construct($template = 'null', string $content = 'null') {
-        if (strtolower($template) == 'null' && (strtolower($content) == 'null' || strlen(trim($content)) == 0)) {
+    public static function create(Template $template, string $content) {
+        if (System::isNull($template) || System::isNull($content)) {
             ExceptionHandler::generateError("Невозможно сгенерировать View из пустых значений");
         }
 
-        if (strtolower($content) != 'null') {
-            $content = str_ends_with($content, ".html") ? file_get_contents($content) : $content;
-        }
+        $content = str_ends_with($content, ".html") ? file_get_contents($content) : $content;
 
-        if (strtolower($template) == 'null') {
-            $this->view = $content;
-        } else if (strtolower($content) == 'null' || strlen(trim($content)) == 0) {
-            $this->view = $template->template;
-        } else {
-            $this->view = $template->generatePage($content);
-        }
+        self::$view = $template->generatePage($content);
+
+        return self::$view;
     }
 
-    public function __toString() {
-        return $this->view;
+    public static function createFromTemplate(Template $template) {
+        if (System::isNull($template)) {
+            ExceptionHandler::generateError("Невозможно сгенерировать View из пустых значений");
+        }
+
+        self::$view = $template->generatePage("");
+
+        return self::$view;
+    }
+
+    public static function createFromContent(string $content) {
+        if (System::isNull($content)) {
+            ExceptionHandler::generateError("Невозможно сгенерировать View из пустых значений");
+        }
+
+        $content = str_ends_with($content, ".html") ? file_get_contents($content) : $content;
+
+        self::$view = $content;
+
+        return self::$view;
     }
 
     public function getView() {
