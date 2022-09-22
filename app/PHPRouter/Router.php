@@ -4,7 +4,7 @@ namespace PHPRouter;
 
 use PHPExceptionHandler\ExceptionHandler;
 
-include_once "Route.php";
+include "Route.php";
 
 class Router {
     private array $route_array = array();
