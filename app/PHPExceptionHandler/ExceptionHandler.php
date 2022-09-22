@@ -12,9 +12,9 @@ class ExceptionHandler {
      */
     public static function generateError(string $error_message) {
         if (self::$html_error_page == "none") {
-            echo "<h3 class='phprouter-error'>$error_message</h3>";
+            echo "<h3 class='php-exception-handler-error'>Ошибка: $error_message</h3>";
         } else {
-            $html = str_replace("[error]", "<h3 class='phprouter-error'>$error_message</h3>", self::$html_error_page);
+            $html = str_replace("[error]", "<h3 class='php-exception-handler-error'>Ошибка: $error_message</h3>", self::$html_error_page);
             echo $html;
         }
 
