@@ -14,7 +14,7 @@ class Template {
             $template = file_get_contents($template);
         }
 
-        if ($template == null || strlen(trim($template)) == 0 || strpos($template, "[content]") === false) {
+        if ($template == null || strlen(trim($template)) == 0) {
             ExceptionHandler::generateError("Не удалось установить шаблон страницы");
         }
 
