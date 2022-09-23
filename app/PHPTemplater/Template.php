@@ -39,6 +39,10 @@ class Template {
     }
 
     public function generatePage($content) {
+        if ($content == '') {
+            $content = ' ';
+        }
+        
         if (System::isNull($content)) {
             ExceptionHandler::generateError("Не удалось сгенерировать страницу");
         }
