@@ -5,6 +5,7 @@ namespace PHPTemplater;
 include __DIR__.'/../PHPExceptionHandler/ExceptionHandler.php';
 
 use PHPExceptionHandler\ExceptionHandler;
+use PHPSystem\System;
 
 class Template {
     protected string $template;
@@ -14,7 +15,7 @@ class Template {
             $template = file_get_contents($template);
         }
 
-        if ($template == null || strlen(trim($template)) == 0) {
+        if (System::isNull($template)) {
             ExceptionHandler::generateError("Не удалось установить шаблон страницы");
         }
 
@@ -30,7 +31,7 @@ class Template {
             $template = file_get_contents($template);
         }
 
-        if ($template == null || strlen(trim($template)) == 0 || strpos($template, "[content]") === false) {
+        if (System::isNull($template)) {
             ExceptionHandler::generateError("Не удалось установить шаблон страницы");
         }
 
@@ -38,7 +39,7 @@ class Template {
     }
 
     public function generatePage($content) {
-        if (strlen(trim($content)) == 0 || $content == null) {
+        if (System::isNull($content)) {
             ExceptionHandler::generateError("Не удалось сгенерировать страницу");
         }
 
