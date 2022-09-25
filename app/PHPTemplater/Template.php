@@ -2,7 +2,8 @@
 
 namespace PHPTemplater;
 
-include __DIR__.'/../PHPExceptionHandler/ExceptionHandler.php';
+include __DIR__ . '/../PHPExceptionHandler/ExceptionHandler.php';
+include __DIR__ . '/../PHPSystem/System.php';
 
 use PHPExceptionHandler\ExceptionHandler;
 use PHPSystem\System;
