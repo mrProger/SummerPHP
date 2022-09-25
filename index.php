@@ -3,6 +3,7 @@
 include __DIR__ . '/app/PHPRouter/Router.php';
 include __DIR__ . '/app/PHPOrm/MySQL.php';
 include __DIR__ . '/app/PHPTemplater/Template.php';
+include __DIR__ . '/app/PHPView/View.php';
 
 use PHPRouter\Router;
 use PHPTemplater\Template;
