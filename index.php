@@ -2,13 +2,14 @@
 
 include __DIR__ . '/app/PHPRouter/Router.php';
 include __DIR__ . '/app/PHPOrm/MySQL.php';
-include __DIR__ . '/app/PHPTemplater/Templater.php';
+include __DIR__ . '/app/PHPTemplater/Template.php';
 
 use PHPRouter\Router;
-use PHPTemplater\Templater;
+use PHPTemplater\Template;
+use PHPView\View;
 
 $router = new Router();
-$template = new Templater(__DIR__ . "/pages/index.html");
+$template = new Template(__DIR__ . "/pages/index.html");
 $orm = new MySQL("localhost", "root", "", "123");
 
 $router->post("plus", function() {
@@ -24,6 +25,11 @@ $router->post("plus", function() {
 
 $router->get("test", function() {
     echo "<h3>test</h3>";
+});
+
+$router->get("test123", function() {
+    global $template;
+    echo View::createFromTemplate($template);
 });
 
 $router->get("/", function() {
