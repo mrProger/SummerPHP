@@ -11,6 +11,8 @@ ExceptionHandler::generateError("ошибка");
 
 **ВНИМАНИЕ:** При использовании данной функции сайт останавливает работу
 
+<br>
+
 **2. Использование своей страницы для вывода ошибок**d
 ```php
 ExceptionHandler::setCustomErrorPage($html);
