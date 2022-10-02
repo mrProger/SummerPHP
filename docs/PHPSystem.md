@@ -9,6 +9,7 @@ System::isNull($value);
 
 **Первый аргумент** - значение, проверяемое на null
 
+
 **2. Подключение CORS к маршруту**
 ```php
 System::addCors();
