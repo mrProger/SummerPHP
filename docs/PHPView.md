@@ -11,6 +11,8 @@ View::create($template, __DIR__ . "/page/test.html");
 
 **Второй аргумент** - контент, а именно путь до html файла, либо html верстка
 
+<br>
+
 **2. Создание страницы (view) на основе шаблона (Template)**
 ```php
 View::createFromTemplate($template);
@@ -19,6 +21,8 @@ View::createFromTemplate($template);
 **Описание:** Создает страницу на основе ранее созданного шаблона
 
 **Первый аргумент** - шаблон, а именно объект класса Template
+
+<br>
 
 **3. Создание страницы (view) на основе контента**
 ```php
