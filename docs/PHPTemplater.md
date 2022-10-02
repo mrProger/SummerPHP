@@ -9,6 +9,8 @@ $template = new Template(__DIR__ . "/page/test.html");
 
 **Первый аргумент** - путь до html файла, либо html верстка
 
+<br>
+
 **2. Получение шаблона**
 ```php
 $template->getTemplate();
@@ -18,6 +20,8 @@ $template->getTemplate();
 
 **Аргументы** - отсутствуют
 
+<br>
+
 **3. Изменить шаблон**
 ```php
 $template-setTemplate(__DIR__ . "/page/test.html");
@@ -26,6 +30,8 @@ $template-setTemplate(__DIR__ . "/page/test.html");
 **Описание:** Изменяет текущий шаблон на указанный
 
 **Первый аргумент** - путь до html файла, либо html верстка
+
+<br>
 
 **4. Генерация страницы**
 ```php
