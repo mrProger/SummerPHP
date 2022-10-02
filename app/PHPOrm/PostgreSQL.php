@@ -47,7 +47,7 @@ class PostgreSQL {
         $this->port = $port;
     }
 
-    public function generateConnectionStr() {
+    private function generateConnectionStr() {
         return "pgsql:host=".$this->host.";port=".$this->port.";dbname=".$this->dbname;
     }
 
