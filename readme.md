@@ -8,7 +8,7 @@ SummerPHP - это современный фреймворк для веб-пр�
 3) Запустить файл ```start.bat``` или ```start.sh```, зависимо от системы
 4) Наслаждаться результатом
 ## Документация
-- [PHPRouter](docs/PHProuter.md)
+- [PHPRouter](docs/PHPRouter.md)
 - [PHPExceptionHandler](docs/PHPExceptionHandler.md)
 - [PHPOrm](docs/PHPOrm.md)
 - [PHPSystem](docs/PHPSystem.md)
