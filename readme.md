@@ -1,5 +1,19 @@
 # SummerPHP
+SummerPHP - это современный фреймворк для веб-приложений. SummerPHP выделяется на фоне других фреймворков своей компактностью, простотой установки, а так же тем, что сделан в России.
+## Требования
+---
+- PHP 8
+## Установка
+---
+1) Скачать или склонировать репозиторий в удобное место
+2) Написать код
+3) Запустить файл ```start.bat``` или ```start.sh```, зависимо от системы
+4) Наслаждаться результатом
 ## Документация
-**PHPRouter** - https://github.com/mrProger/PHPRouter<br>
-**RedbeanPHP** - https://prowebmastering.ru/redbeanphp-orm-dlya-php.html (это не официальная документация, а лишь примеры)<br>
-Документация для **RedbeanPHP** доступна на официальном сайте библиотеки - https://redbeanphp.com/index.php?p=/crud
+---
+- [PHPRouter](docs/PHProuter.md)
+- [PHPExceptionHandler](docs/PHPExceptionHandler.md)
+- [PHPOrm](docs/PHPOrm.md)
+- [PHPSystem](docs/PHPSystem.md)
+- [PHPTemplater](docs/PHPTemplater.md)
+- [PHPView](docs/PHPView.md)
