@@ -47,7 +47,7 @@ class MySQL {
         $this->port = $port;
     }
 
-    public function generateConnectionStr() {
+    private function generateConnectionStr() {
         return "mysql:host=".$this->host.";port=".$this->port.";dbname=".$this->dbname;
     }
 
