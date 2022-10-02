@@ -15,7 +15,7 @@ class SQLite {
         $this->dbname = $dbname;
     }
 
-    public function generateConnectionStr() {
+    private function generateConnectionStr() {
         return "sqlite:".$this->dbname;
     }
 
