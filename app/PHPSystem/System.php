@@ -31,7 +31,7 @@ class System {
         }
     }
     
-    public static function starts_with(string $haystack, string $needle) {
+    public static function startsWith(string $haystack, string $needle) {
         $haystack_len = strlen($haystack);
         $needle_len = strlen($needle);
         
@@ -43,7 +43,7 @@ class System {
         return $str == $needle;
     }
     
-    public static function ends_with(string $haystack, string $needle) {
+    public static function endsWith(string $haystack, string $needle) {
         $haystack_len = strlen($haystack);
         $needle_len = strlen($needle);
         
