@@ -160,8 +160,10 @@ class Router {
         $uri = preg_replace("/\//", "", $_SERVER["REQUEST_URI"], 1);
         $method = $_SERVER["REQUEST_METHOD"];
 
-        $uri = $uri == null ? "/" : $uri;
-
+        if ($uri == null) {
+            $uri = "/";
+        }
+        
         if (strpos($uri, "/?") !== false && $method == "GET") {
             $uri = stristr($uri, "/?", true);
         } else if (strpos($uri, "/?") !== false && $method != "GET") {
