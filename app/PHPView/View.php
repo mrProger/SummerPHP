@@ -14,7 +14,7 @@ class View {
             ExceptionHandler::generateError("Невозможно сгенерировать View из пустых значений");
         }
 
-        $content = str_ends_with($content, ".html") ? file_get_contents($content) : $content;
+        $content = System::endsWith($content, ".html") ? file_get_contents($content) : $content;
         $view = $template->generatePage($content);
 
         return $view;
@@ -35,7 +35,7 @@ class View {
             ExceptionHandler::generateError("Невозможно сгенерировать View из пустых значений");
         }
 
-        $content = str_ends_with($content, ".html") ? file_get_contents($content) : $content;
+        $content = System::endsWith($content, ".html") ? file_get_contents($content) : $content;
         $view = $content;
 
         return $view;
