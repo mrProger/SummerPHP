@@ -11,7 +11,7 @@ class Template {
     protected string $template;
 
     public function __construct($template) {
-        if (str_ends_with($template, ".html")) {
+        if (System::endsWith($template, ".html")) {
             $template = file_get_contents($template);
         }
 
@@ -27,7 +27,7 @@ class Template {
     }
 
     public function setTemplate($template) {
-        if (str_ends_with($template, ".html")) {
+        if (System::endsWith($template, ".html")) {
             $template = file_get_contents($template);
         }
 
@@ -47,7 +47,7 @@ class Template {
             ExceptionHandler::generateError("Не удалось сгенерировать страницу");
         }
 
-        if (str_ends_with($content, ".html")) {
+        if (System::endsWith($content, ".html")) {
             $content = file_get_contents($content);
         }
 
