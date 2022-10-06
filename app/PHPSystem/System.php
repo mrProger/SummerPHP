@@ -30,4 +30,28 @@ class System {
             exit(0);
         }
     }
+    
+    public static function starts_with(string $haystack, string $needle) {
+        $haystack_len = strlen($haystack);
+        $needle_len = strlen($needle);
+        
+        if ($haystack_len < $needle_len) {
+            return false;
+        }
+        
+        $str = substr($haystack, 0, $needle_len);
+        return $str == $needle;
+    }
+    
+    public static function ends_with(string $haystack, string $needle) {
+        $haystack_len = strlen($haystack);
+        $needle_len = strlen($needle);
+        
+        if ($haystack_len < $needle_len) {
+            return false;
+        }
+        
+        $str = substr($haystack, $haystack_len - $needle_len, $haystack_len);
+        return $str == $needle;
+    }
 }
