@@ -17,7 +17,6 @@ class Hash {
             ExceptionHandler::generateError("Невозможно сгенерировать хеш из пустого значения");
         }
 
-
         $hash = $value;
 
         if (!System::isNull($salt)) {
@@ -39,7 +38,6 @@ class Hash {
         if (System::isNull($value)) {
             ExceptionHandler::generateError("Невозможно сгенерировать хеш из пустого значения");
         }
-
 
         $hash = $value;
 
