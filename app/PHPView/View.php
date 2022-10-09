@@ -2,11 +2,8 @@
 
 namespace PHPView;
 
-include __DIR__ . '/../PHPSystem/System.php';
-
 use \PHPTemplater\Template;
 use \PHPExceptionHandler\ExceptionHandler;
-use \PHPSystem\System;
 
 class View {
     public static function create(Template $template, string $content) {

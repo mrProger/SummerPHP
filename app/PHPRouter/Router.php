@@ -133,7 +133,12 @@ class Router {
     }
 
     public function getPostRouteData() {
-        return json_decode(file_get_contents('php://input'), true);
+        $data = json_decode(file_get_contents('php://input'), true);
+        if ($data == null) {
+            return $_POST;
+        } else {
+            return $data;
+        }
     }
 
     public function removePost(string $route) {

@@ -2,9 +2,6 @@
 
 namespace PHPHash;
 
-include __DIR__ . '/../PHPSystem/System.php';
-
-use \PHPSystem\System;
 use \PHPExceptionHandler\ExceptionHandler;
 
 class Hash {

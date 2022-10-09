@@ -54,4 +54,9 @@ class System {
         $str = substr($haystack, $haystack_len - $needle_len, $haystack_len);
         return $str == $needle;
     }
+
+    public static function isJson($string) {
+        json_decode($string);
+        return (json_last_error() == JSON_ERROR_NONE);
+    }
 }
