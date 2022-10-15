@@ -21,7 +21,7 @@ class Router {
         return $this->findRouteMethod($route, $method) != null;
     }
 
-    public function get(string $route, object $func) {
+    public function get(string $route, $func) {
         if ($this->isEmpty($route)) {
             ExceptionHandler::generateError("Маршрут не должен быть пустым");
         }
@@ -51,7 +51,7 @@ class Router {
         $this->route_array[$new_route]["GET"] = new Route($new_route, "GET", $func);
     }
 
-    public function overrideGetRouteAction(string $route, object $func) {
+    public function overrideGetRouteAction(string $route, $func) {
         if ($this->isEmpty($route)) {
             ExceptionHandler::generateError("Маршрут не должен быть пустым");
         }
@@ -90,7 +90,7 @@ class Router {
         }
     }
 
-    public function post(string $route, object $func) {
+    public function post(string $route, $func) {
         if ($this->isEmpty($route)) {
             ExceptionHandler::generateError("Маршрут не должен быть пустым");
         }
@@ -120,7 +120,7 @@ class Router {
         $this->route_array[$new_route]["POST"] = new Route($new_route, "POST", $func);
     }
 
-    public function overridePostRouteAction(string $route, object $func) {
+    public function overridePostRouteAction(string $route, $func) {
         if ($this->isEmpty($route)) {
             ExceptionHandler::generateError("Маршрут не должен быть пустым");
         }
