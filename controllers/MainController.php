@@ -23,12 +23,12 @@ class MainController {
 
     public static function index() {
         global $template, $orm, $request;
-        //$orm->connect();
-        //$user = R::dispense('user');
-        //$user->name = "Ilya";
-        //$user->age = 20;
-        //R::store($user);
-        echo $template->generatePage(__DIR__ . '/../pages/test.html');
+        $orm->connect();
+        $user = R::dispense('user');
+        $user->name = "Ilya";
+        $user->age = 20;
+        R::store($user);
+        //echo $template->generatePage(__DIR__ . '/../pages/test.html');
         //$data = $request->post("localhost:8001/plus", '{"num1": 2, "num2": 2}');
         /*if (!$data) {
             echo "false";
