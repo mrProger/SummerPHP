@@ -14,3 +14,13 @@ SummerPHP - это современный фреймворк для веб-пр�
 - [PHPSystem](docs/PHPSystem.md)
 - [PHPTemplater](docs/PHPTemplater.md)
 - [PHPView](docs/PHPView.md)
+- [PHPMailer](docs/PHPMailer.md)
+- [PHPHash](docs/PHPHash.md)
+- [PHPRequester](docs/PHPRequester.md)
+## Структура
+- app/                  Системные библиотеки   
+- controllers/          Контроллеры
+- docs/                 Документация
+- models/               Модели
+- pages/                Страницы
+- routes/               Маршруты

@@ -1,10 +1,12 @@
 <?php
 
-class User {
-    public string $name;
-    public int $age;
+include __DIR__ . '/../app/PHPModel/Model.php';
 
-    public function __construct(string $name, int $age) {
+class User extends Model {
+    public string $name;
+    public $age;
+
+    public function __construct(string $name, $age) {
         $this->name = $name;
         $this->age = $age;
     }
@@ -13,7 +15,7 @@ class User {
         return $this->name;
     }
 
-    public function getAge() : int {
+    public function getAge(){
         return $this->age;
     }
 }
