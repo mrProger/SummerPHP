@@ -38,9 +38,13 @@ helper.exe create-controller TestController
 
 **Описание:** Создает контроллер TestController в директории controllers. Если директория controllers отсутствует, то создает ее
 
+<br>
+
 **2. Создание модели**
 ```sh
 helper.exe create-model User
 ```
 
 **Описание:** Создает модель User в директории models. Если директория models отсутствует, то создает ее
+
+Репозиторий helper - https://github.com/mrProger/Helper
