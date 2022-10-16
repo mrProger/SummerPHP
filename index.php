@@ -10,7 +10,6 @@ include __DIR__ . '/app/PHPRequester/Request.php';
 // Подключение системных пространств имен
 use PHPRouter\Router;
 use PHPTemplater\Template;
-use PHPView\View;
 use PHPRequester\Request;
 
 // Создание системных объектов

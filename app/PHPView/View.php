@@ -4,6 +4,7 @@ namespace PHPView;
 
 use \PHPTemplater\Template;
 use \PHPExceptionHandler\ExceptionHandler;
+use \PHPSystem\System;
 
 class View {
     public static function create(Template $template, string $content) {
