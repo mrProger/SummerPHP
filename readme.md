@@ -34,7 +34,6 @@ Windows:
 ```sh
 helper.exe create-controller TestController
 ```
-<br>
 Linux:
 ```sh
 ./helper create-controller TestController
@@ -49,7 +48,6 @@ Windows:
 ```sh
 helper.exe create-model User
 ```
-<br>
 Linux:
 ```sh
 ./helper create-model User
