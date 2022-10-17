@@ -29,11 +29,15 @@ routes/               Маршруты
 ini/                  Файл php.ini
 ```
 ## Использование helper
-**ПРЕДУПРЕЖДЕНИЕ:** На данный момент доступна лишь версия для Windows, в дальнейших обновлениях будет добавлена так же и версия для Linux
-
 **1. Создание контроллера**
+Windows:
 ```sh
 helper.exe create-controller TestController
+```
+<br>
+Linux:
+```sh
+./helper create-controller TestController
 ```
 
 **Описание:** Создает контроллер TestController в директории controllers. Если директория controllers отсутствует, то создает ее
@@ -41,8 +45,14 @@ helper.exe create-controller TestController
 <br>
 
 **2. Создание модели**
+Windows:
 ```sh
 helper.exe create-model User
+```
+<br>
+Linux:
+```sh
+./helper create-model User
 ```
 
 **Описание:** Создает модель User в директории models. Если директория models отсутствует, то создает ее
