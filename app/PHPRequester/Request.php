@@ -21,11 +21,13 @@ class Request {
             ExceptionHandler::generateError("Все поля должны быть заполнены");
         }
 
-        if (!System::isJson($data) && !is_array($data)) {
-            ExceptionHandler::generateError("Передан неверный формат данных");
+        if (!is_array($data)) {
+            if (!System::isJson($data)) {
+                ExceptionHandler::generateError("Передан неверный формат данных");
+            }
         }
 
-        if (!System::isJson($data)) {
+        if (is_array($data)) {
             $data = json_encode($data);
         }
 
