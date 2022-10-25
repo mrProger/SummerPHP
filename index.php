@@ -6,6 +6,7 @@ include __DIR__ . '/app/PHPOrm/MySQL.php';
 include __DIR__ . '/app/PHPTemplater/Template.php';
 include __DIR__ . '/app/PHPView/View.php';
 include __DIR__ . '/app/PHPRequester/Request.php';
+include __DIR__ . '/app/PHPModel/Model.php';
 
 // Подключение системных пространств имен
 use PHPRouter\Router;
